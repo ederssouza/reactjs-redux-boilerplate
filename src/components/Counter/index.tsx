@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 
-import { actions } from '../../actions/counter'
-import { selectors } from '../../selectors/counter'
+import { actions } from '../../redux/actions/counter'
+import { selectors } from '../../redux/selectors/counter'
 
 export function Counter () {
   const counter = useSelector(selectors.getCounter)
