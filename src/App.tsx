@@ -1,3 +1,5 @@
-const App = () => <h1>App</h1>
+import { Counter } from './components/Counter'
+
+const App = () => <Counter />
 
 export default App
