@@ -7,9 +7,9 @@
     <img src="https://app.travis-ci.com/ederssouza/reactjs-redux-boilerplate.svg?branch=master" alt="Build Status" />
   </a>
 
-  <a href='https://coveralls.io/github/ederssouza/reactjs-redux-boilerplate?branch=master'>
+  <!-- <a href='https://coveralls.io/github/ederssouza/reactjs-redux-boilerplate?branch=master'>
     <img src='https://coveralls.io/repos/github/ederssouza/reactjs-redux-boilerplate/badge.svg?branch=master' alt='Coverage Status' />
-  </a>
+  </a> -->
 
   <a href="https://github.com/ederssouza/reactjs-redux-boilerplate/blob/master/LICENSE.md">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="Coverage Status" />
