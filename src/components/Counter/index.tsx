@@ -5,9 +5,23 @@ export function Counter () {
 
   return (
     <>
-      <h1>Counter: {counter}</h1>
-      <button onClick={handleDecrement}>Decrement</button>
-      <button onClick={handleIncrement}>Increment</button>
+      <h1>
+        Counter: <span data-testid="counter-value">{counter}</span>
+      </h1>
+
+      <button
+        data-testid="decrement-button"
+        onClick={handleDecrement}
+      >
+        Decrement
+      </button>
+
+      <button
+        data-testid="increment-button"
+        onClick={handleIncrement}
+      >
+        Increment
+      </button>
     </>
   )
 }
