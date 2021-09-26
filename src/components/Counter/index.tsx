@@ -1,14 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux'
-
-import { actions } from '../../redux/actions/counter'
-import { selectors } from '../../redux/selectors/counter'
+import { useCounter } from '../../hooks/useCounter'
 
 export function Counter () {
-  const counter = useSelector(selectors.getCounter)
-  const dispatch = useDispatch()
-
-  const handleDecrement = () => dispatch(actions.decrement())
-  const handleIncrement = () => dispatch(actions.increment())
+  const { counter, handleDecrement, handleIncrement } = useCounter()
 
   return (
     <>
