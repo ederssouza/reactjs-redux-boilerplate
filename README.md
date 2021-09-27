@@ -30,7 +30,21 @@ A basic project structure to build React JS apps using Redux.
 
 ## Project structure
 
-`TODO`
+```bash
+src
+├── components
+│   └── Counter
+├── hooks
+│   └── useCounter
+├── redux
+│   ├── actions
+│   ├── constants
+│   ├── reducers
+│   ├── selectors
+│   └── store
+└── tests
+    └── mocks
+```
 
 ## Getting started
 
