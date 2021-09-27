@@ -16,6 +16,25 @@
   </a>
 </p>
 
+## Summary
+
+- [About](#about)
+- [Built using](#built-using)
+- [Project structure](#project-structure)
+- [Getting started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installing dependencies](#installing-dependencies)
+- [Project setup](#project-setup)
+  - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
+  - [Compiles and minifies for production](#compiles-and-minifies-for-production)
+  - [Lints and fixes files](#lints-and-fixes-files)
+  - [Run your unit tests](#run-your-unit-tests)
+- [How to create a reducer?](#how-to-create-a-reducer)
+- [Contributing](#contributing)
+- [Versioning](#versioning)
+- [Authors](#authors)
+- [License](#license)
+
 ## About
 
 A basic project structure to build React JS apps using Redux.
