@@ -52,6 +52,7 @@
     "collectCoverageFrom": [
       "src/components/**/*.tsx",
       "src/context/**/*.tsx",
+      "src/hooks/**/*.tsx",
       "src/pages/**/*.tsx"
     ]
   },
