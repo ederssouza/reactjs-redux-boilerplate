@@ -9,17 +9,11 @@ export function Counter () {
         Counter: <span data-testid="counter-value">{counter}</span>
       </h1>
 
-      <button
-        data-testid="decrement-button"
-        onClick={handleDecrement}
-      >
+      <button onClick={handleDecrement}>
         Decrement
       </button>
 
-      <button
-        data-testid="increment-button"
-        onClick={handleIncrement}
-      >
+      <button onClick={handleIncrement}>
         Increment
       </button>
     </>
