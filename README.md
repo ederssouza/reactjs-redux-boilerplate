@@ -137,13 +137,13 @@ npm run test:coverage:watch
 
 ## How to create a reducer?
 
-As an example, let's implement a counter component reducer. Files are also available in the repository. 
+As an example, let's implement a counter component reducer. Files are also available in the repository.
 Follow the steps below to implement your first reducer.
 
 1. Create action types constants, in the `constants` directory:
 
 ```js
-// src/redux/constants/counter.ts 
+// src/redux/constants/counter.ts
 
 export const actionTypes = {
   COUNTER_DECREMENT: 'COUNTER_DECREMENT',
@@ -154,11 +154,11 @@ export const actionTypes = {
 2. Create reducer, in the `reducers` directory:
 
 ```js
-// src/redux/reducers/counter.ts 
+// src/redux/reducers/counter.ts
 
 import { actionTypes } from '../constants/counter'
 
-interface IAction {
+type Action = {
   type: 'COUNTER_DECREMENT' | 'COUNTER_INCREMENT'
 }
 
@@ -166,7 +166,7 @@ const INITIAL_STATE = {
   counter: 0
 }
 
-export const counterReducers = (state = INITIAL_STATE, action: IAction) => {
+export const counterReducers = (state = INITIAL_STATE, action: Action) => {
   switch (action.type) {
     case actionTypes.COUNTER_DECREMENT:
       return {
@@ -191,18 +191,19 @@ export const counterReducers = (state = INITIAL_STATE, action: IAction) => {
 ```js
 // src/redux/reducers/index.ts
 
+import { combineReducers } from 'redux'
 import { counterReducers } from './counter'
 
-export const reducers = combineReducers({ 
+export const reducers = combineReducers({
   // ...
-  counterReducers 
+  counterReducers
 })
 ```
 
 4. Create action types methods, in the `actions` directory:
 
 ```js
-// src/redux/actions/counter.ts 
+// src/redux/actions/counter.ts
 
 import { actionTypes } from '../constants/counter'
 
@@ -220,7 +221,8 @@ export const actions = {
 5. Create selectors, in the `selectors` directory:
 
 ```js
-// src/redux/selectors/counter.ts 
+// src/redux/selectors/counter.ts
+
 import { RootStateOrAny } from 'react-redux'
 
 export const selectors = {
@@ -238,13 +240,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { actions } from '../../redux/actions/counter'
 import { selectors } from '../../redux/selectors/counter'
 
-interface IUseCounter {
-  counter: number
-  handleDecrement: () => void
-  handleIncrement: () => void
-}
-
-export function useCounter (): IUseCounter {
+export function useCounter () {
   const counter = useSelector(selectors.getCounter)
   const dispatch = useDispatch()
 
@@ -258,7 +254,7 @@ export function useCounter (): IUseCounter {
 7. Import custom hook in the component:
 
 ```js
-// src/components/Counter/index.tsx 
+// src/components/Counter/index.tsx
 
 import { useCounter } from '../../hooks/useCounter'
 
@@ -267,7 +263,9 @@ export function Counter () {
 
   return (
     <div>
-      <h1>Counter: {counter}</h1>
+      <h1>
+        Counter: {counter}
+      </h1>
 
       <button onClick={handleDecrement}>
         Decrement
