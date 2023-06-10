@@ -2,7 +2,7 @@ import { useCounter } from '.'
 import { actions } from '../../redux/actions/counter'
 import { selectors } from '../../redux/selectors/counter'
 
-interface ISetupProps {
+type Props = {
   counter: number
 }
 
@@ -11,7 +11,7 @@ jest.mock('react-redux', () => ({
   useDispatch: () => jest.fn()
 }))
 
-const setup = ({ counter }: ISetupProps) => {
+const setup = ({ counter }: Props) => {
   jest.spyOn(selectors, 'getCounter').mockReturnValue(counter)
   jest.spyOn(actions, 'decrement')
   jest.spyOn(actions, 'increment')
@@ -26,21 +26,25 @@ describe('useCounter hook', () => {
     jest.restoreAllMocks()
   })
 
-  it('should dispatch `actions.decrement` when call `handleDecrement` method', () => {
-    setup({ counter: 0 })
+  describe('when call `handleDecrement` method', () => {
+    it('should dispatch `actions.decrement`', () => {
+      setup({ counter: 0 })
 
-    const { handleDecrement } = useCounter()
+      const { handleDecrement } = useCounter()
 
-    handleDecrement()
+      handleDecrement()
 
-    expect(actions.decrement).toHaveBeenCalledTimes(1)
+      expect(actions.decrement).toHaveBeenCalledTimes(1)
+    })
   })
 
-  it('should dispatch `actions.increment` when call `handleIncrement` method', () => {
-    const { handleIncrement } = useCounter()
+  describe('when call `handleIncrement` method', () => {
+    it('should dispatch `actions.increment`', () => {
+      const { handleIncrement } = useCounter()
 
-    handleIncrement()
+      handleIncrement()
 
-    expect(actions.increment).toHaveBeenCalledTimes(1)
+      expect(actions.increment).toHaveBeenCalledTimes(1)
+    })
   })
 })

@@ -14,32 +14,36 @@ describe('Counter component', () => {
   it('should render with success', () => {
     wrapper()
 
-    const $counterValue = screen.getByTestId('counter-value')
+    const counterValue = screen.getByTestId('counter-value')
 
-    expect($counterValue.textContent).toEqual('0')
+    expect(counterValue.textContent).toEqual('0')
   })
 
-  it('should decrement -1 on counter when on click decrement button', () => {
-    wrapper()
+  describe('when on click decrement button', () => {
+    it('should decrement -1 on counter', () => {
+      wrapper()
 
-    const $counterValue = screen.getByTestId('counter-value')
-    const $decrementButton = screen.getByTestId('decrement-button')
+      const counterValue = screen.getByTestId('counter-value')
+      const decrementButton = screen.getByRole('button', { name: 'Decrement' })
 
-    fireEvent.click($decrementButton)
-    fireEvent.click($decrementButton)
+      fireEvent.click(decrementButton)
+      fireEvent.click(decrementButton)
 
-    expect($counterValue.textContent).toEqual('-2')
+      expect(counterValue.textContent).toEqual('-2')
+    })
   })
 
-  it('should increment +1 on counter when on click increment button', () => {
-    wrapper()
+  describe('when on click increment button', () => {
+    it('should increment +1 on counter', () => {
+      wrapper()
 
-    const $counterValue = screen.getByTestId('counter-value')
-    const $incrementButton = screen.getByTestId('increment-button')
+      const counterValue = screen.getByTestId('counter-value')
+      const incrementButton = screen.getByRole('button', { name: 'Increment' })
 
-    fireEvent.click($incrementButton)
-    fireEvent.click($incrementButton)
+      fireEvent.click(incrementButton)
+      fireEvent.click(incrementButton)
 
-    expect($counterValue.textContent).toEqual('0')
+      expect(counterValue.textContent).toEqual('0')
+    })
   })
 })
