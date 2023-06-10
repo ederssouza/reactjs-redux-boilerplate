@@ -1,6 +1,6 @@
 import { actionTypes } from '../constants/counter'
 
-interface IAction {
+type Action = {
   type: 'COUNTER_DECREMENT' | 'COUNTER_INCREMENT'
 }
 
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   counter: 0
 }
 
-export const counterReducers = (state = INITIAL_STATE, action: IAction) => {
+export const counterReducers = (state = INITIAL_STATE, action: Action) => {
   switch (action.type) {
     case actionTypes.COUNTER_DECREMENT:
       return {
